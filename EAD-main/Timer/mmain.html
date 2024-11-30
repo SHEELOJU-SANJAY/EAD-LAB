@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple Login</title>
+  <style>
+    body {
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f0f0f0;
+    }
+
+    .login-box {
+      width: 250px;
+      margin: auto;
+    }
+
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+    }
+
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+    }
+
+    #error {
+      color: red;
+    }
+    #success {
+        color: green;
+        margin-top: 10px;
+      }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form onsubmit="return checkLogin()">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button type="submit">Login</button>
+      <p id="error"></p>
+      <p id="success"></p>
+    </form>
+  </div>
+  
+  <script>
+    function checkLogin() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var error = document.getElementById("error");
+      var success = document.getElementById("success");
+
+      error.textContent = "";
+      success.textContent = "";
+
+      if (username === "" || password === "") {
+        error.textContent = "Please fill all fields.";
+        return false;
+      } 
+      else if (username === "vysh" && password === "123") {
+        success.textContent = "Login success!";
+        return false; // Stop submission since it's a demo
+      } 
+      else {
+        error.textContent = "Login Failed. Check your credentials.";
+        return false;
+    }}
+  </script>
+</body>
+</html>
